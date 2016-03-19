@@ -22,7 +22,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "_id interger primary key," +
             "Food text," +
             "Price text," +
-            "Source text):;
+            "Source text);";
 
     public MyOpenHelper(Context context) {
         super(context ,database_name,null,database_version);
