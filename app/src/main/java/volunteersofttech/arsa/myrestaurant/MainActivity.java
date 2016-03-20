@@ -1,5 +1,6 @@
 package volunteersofttech.arsa.myrestaurant;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +79,20 @@ public class MainActivity extends AppCompatActivity {
         try {
 
             String[] myResultsStrings = myManage.SearchUser(userString);
+
+            //check Password
+            if (passworString.equals(myResultsStrings[2])) {
+                //password True
+                Intent intent = new Intent(MainActivity.this,OrderActivity.class);  //การย้ายหน้าไปอีกหน้า
+                intent.putExtra("officer", myResultsStrings[3]);  //เป็นการส่ง parameter ข้าม form ถ้าหลายตัวให้ทำเป็นหลายบรรทัด ส่งเป็น Array
+                startActivity(intent);  //เป็นการเปิด form
+                finish();
+
+            } else {
+                //password False
+                myAlert("Password ผิด");
+
+            }
 
             myAlert("ยินดีต้อนรับ " + myResultsStrings[3]);
 

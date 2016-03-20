@@ -48,5 +48,6 @@
         android:text="Login"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
-        android:onClick="clickLogin" />
+        android:onClick="clickLogin"
+        android:background="#ffb300" />
 </RelativeLayout>

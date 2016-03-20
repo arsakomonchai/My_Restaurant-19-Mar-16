@@ -56,6 +56,7 @@ public class MyManage {
                 }
             }//if
             cursor.close();
+
             return resultStrings;
 
 
