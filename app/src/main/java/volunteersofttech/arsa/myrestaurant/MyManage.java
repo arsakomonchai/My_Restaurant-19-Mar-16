@@ -2,6 +2,7 @@ package volunteersofttech.arsa.myrestaurant;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,6 +37,38 @@ public class MyManage {
 
 
     }//Construtor
+
+    public String[] SearchUser(String strUser) {
+
+        try {
+            String[] resultStrings = null;
+            Cursor cursor = readSqLiteDatabase.query(user_table,
+                    new String[]{column_id, column_user, column_password, column_name},
+                    column_user + "=?",
+                    new String[]{strUser},
+                    null, null, null);
+            if (cursor !=null) {
+                if (cursor.moveToFirst()) {
+                    resultStrings = new String[cursor.getColumnCount()];
+                    for (int i = 0; i < 4; i++) {
+                        resultStrings[i] = cursor.getString(i);
+                    }
+                }
+            }//if
+            cursor.close();
+            return resultStrings;
+
+
+        } catch (Exception e) {
+            return null;
+        }
+
+
+        //return new String[0];
+    }
+
+
+
 
     public long addValue(int intTable,
                          String strcolumn2,

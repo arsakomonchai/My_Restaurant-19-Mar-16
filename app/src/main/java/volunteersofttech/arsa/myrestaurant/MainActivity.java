@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             myAlert("มีช่องว่าง");
         } else {
             //No Space
+            checkUser();
+
 
         }
 
@@ -71,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     }// Clicklogin
+
+    private void checkUser() {
+        try {
+
+            String[] myResultsStrings = myManage.SearchUser(userString);
+
+            myAlert("ยินดีต้อนรับ " + myResultsStrings[3]);
+
+        } catch (Exception e) {
+            myAlert("ไม่มี " + userString+" ในฐานข้อมูลของเรา");
+        }
+
+    }//checkUser
 
     private void myAlert(String strmessage) {
         Toast.makeText(MainActivity.this, strmessage, Toast.LENGTH_SHORT).show();
