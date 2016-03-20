@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             if (passworString.equals(myResultsStrings[2])) {
                 //password True
                 Intent intent = new Intent(MainActivity.this,OrderActivity.class);  //การย้ายหน้าไปอีกหน้า
-                intent.putExtra("officer", myResultsStrings[3]);  //เป็นการส่ง parameter ข้าม form ถ้าหลายตัวให้ทำเป็นหลายบรรทัด ส่งเป็น Array
+                intent.putExtra("Officer", myResultsStrings[3]);  //เป็นการส่ง parameter ข้าม form ถ้าหลายตัวให้ทำเป็นหลายบรรทัด ส่งเป็น Array
                 startActivity(intent);  //เป็นการเปิด form
                 finish();
 
